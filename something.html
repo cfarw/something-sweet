@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>что-то крутое</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 250px;
+            background: linear-gradient(135deg, #66a4ea 0%, #2132b4 100%);
+            color: white;
+        }
+        .container {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        button {
+            padding: 15px 40px;
+            font-size: 18px;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #ff5252;
+            transform: scale(1.05);
+        }
+        .counter {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Эксклюзивное предложение!</h1>
+        <p>Нажмите кнопку ниже, чтобы получить доступ к чему-то особенному...</p>
+        
+        <button onclick="redirect()">Получить доступ</button>
+        
+        <div class="counter">
+            Уже получили доступ: <span id="counter">0</span> человек
+        </div>
+    </div>
+
+    <script>
+        let count = localStorage.getItem('clickCount') || 0;
+        document.getElementById('counter').textContent = count;
+
+        function redirect() {
+            count++;
+            localStorage.setItem('clickCount', count);
+            window.location.href = 'thing.html'; // Переход на вторую страницу
+        }
+    </script>
+</body>
+</html>
